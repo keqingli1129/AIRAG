@@ -15,7 +15,17 @@ def main():
     - Handles the interaction loop
     - Coordinates loading, indexing and querying
     """
-    # TODO: Implement main function
+    # Set up argument parser
+    parser = argparse.ArgumentParser(
+        description="Load a webpage and ask questions about its content"
+    )
+    parser.add_argument("url", help="URL of the webpage to load")
+    
+    # Parse arguments
+    args = parser.parse_args()
+    
+    # Load the webpage
+    documents = load_webpage(args.url)
 
 if __name__ == "__main__":
     main()

@@ -24,7 +24,8 @@ def load_webpage(url: str) -> List[Document]:
             parse_only=bs4.SoupStrainer(
                 class_=("main-content", "article", "post-content", "content")
             )
-        )
+        ),
+        requests_kwargs={"headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}}
     )
     
     # Load the documents

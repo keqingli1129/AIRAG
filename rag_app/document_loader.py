@@ -2,6 +2,7 @@
 Handles loading web pages using LangChain's WebBaseLoader
 """
 
+import os
 from langchain_community.document_loaders import WebBaseLoader
 import bs4
 from langchain_core.documents import Document
@@ -25,7 +26,7 @@ def load_webpage(url: str) -> List[Document]:
                 class_=("main-content", "article", "post-content", "content")
             )
         ),
-        requests_kwargs={"headers": {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}}
+        requests_kwargs={"headers": {"User-Agent": os.getenv("USER_AGENT")}}
     )
     
     # Load the documents
